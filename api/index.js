@@ -16,15 +16,15 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(
         msg.chat.id,
         `hello ${msg.chat.first_name}, welcome...\n
-        click /menu to main menu`
+        click /predict`
     );   
 });
 
-bot.onText(/\/menu/, (msg) => { 
+bot.onText(/\/predict/, (msg) => { 
     console.log(msg)
     bot.sendMessage(
         msg.chat.id,
-        `this is your main menu`
+        `Masukkan nilai i/v contohnya 6/9`
     );   
 });
 
