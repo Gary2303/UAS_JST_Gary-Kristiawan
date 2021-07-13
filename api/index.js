@@ -39,14 +39,15 @@ bot.on('message',(msg) => {
             parseFloat(s[0]), // string to float
             parseFloat(s[1])
          ]
-    ).then((jres)=>{      
+    ).then((jres)=>{
+       console.log(jres);
        bot.sendMessage(
         msg.chat.id,
-        'Nilai v yang diprediksi adalah s{jres[0]} volt'
+        'Nilai v yang diprediksi adalah ${jres[0]} volt'
        );
         bot.sendMessage(
          msg.chat.id,
-         'Nilai p yang diprediksi adalah s{jres[1]} watt'
+         'Nilai p yang diprediksi adalah ${jres[1]} watt'
        );
     })
   }else{
