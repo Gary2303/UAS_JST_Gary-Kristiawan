@@ -42,11 +42,11 @@ bot.on('message',(msg) => {
     ).then((jres)=>{
        bot.sendMessage(
         msg.chat.id,
-        'Nilai i yang diprediksi adalah s{jres[0]} ampere'
+        'Nilai i yang diprediksi adalah ${jres[0]} ampere'
        );
         bot.sendMessage(
          msg.chat.id,
-         'Nilai v yang diprediksi adalah s{jres[1]} volt'
+         'Nilai v yang diprediksi adalah ${jres[1]} volt'
        );
     })
   }else{
