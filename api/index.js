@@ -39,8 +39,7 @@ bot.on('message',(msg) => {
             parseFloat(s[0]), // string to float
             parseFloat(s[1])
          ]
-    ).then((jres)=>{
-       console.log(jres);      
+    ).then((jres)=>{      
        bot.sendMessage(
         msg.chat.id,
         'Nilai i yang diprediksi adalah ${jres[0]} ampere'
