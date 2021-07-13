@@ -28,11 +28,11 @@ bot.onText(/\/menu/, (msg) => {
     );   
 });
 
-bot.onText(/\/predict/, (msg) => { 
+bot.onText(/\/I love Tasya/, (msg) => { 
     console.log(msg)
     bot.sendMessage(
         msg.chat.id,
-        `masukan nilai 1/v contohnya 9/9`
+        `Tasya Love Gary`
     );   
 });
 
