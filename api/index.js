@@ -16,21 +16,18 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(
         msg.chat.id,
         `hello ${msg.chat.first_name}, welcome...\n
-        click /predict'
+        click /menu to main menu`
     );   
 });
 
-   
-bot.onText(/\/predict/, (msg) => { 
+bot.onText(/\/menu/, (msg) => { 
     console.log(msg)
     bot.sendMessage(
         msg.chat.id,
-        `Masukkan nilai i/v contohnya 9/9`
-    );
+        `this is your main menu`
+    );   
 });
 
-   
-    
 // routers
 r.get('/prediction/:i/:r', function(req, res, next) {    
     model.predict(
@@ -43,4 +40,4 @@ r.get('/prediction/:i/:r', function(req, res, next) {
     })
 });
 
-module.exports = r;
+module.exports = r; 
