@@ -29,7 +29,7 @@ bot.onText(/\/predict/, (msg) => {
 });
 
 bot.on('message',(msg) => { 
-    if(state == 1){
+    if(state = 1){
         console.log(msg.text);
         s = msg.text.split ("|");
         i = s[0]
@@ -40,6 +40,7 @@ bot.on('message',(msg) => {
             parseFloat(s[1])
          ]
     ).then((jres)=>{
+       console.log(jres)
        bot.sendMessage(
         msg.chat.id,
         'Nilai v yang diprediksi adalah ${jres[0]} volt'
