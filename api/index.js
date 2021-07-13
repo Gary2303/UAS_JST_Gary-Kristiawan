@@ -43,8 +43,8 @@ bot.on('message',(msg) => {
     ).then((jres)=>{
         console.log(jres);
         bot.sendMessage(
-        'nilai v yang diprediksi adalah s(jres[0]) volt'
-        'nilai p yang diprediksi adalah s(jres[1]) watt'
+        'nilai v yang diprediksi adalah s{jres[0]} volt'
+        'nilai p yang diprediksi adalah s{jres[1]} watt'
      
      })
 }); 
