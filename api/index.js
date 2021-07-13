@@ -23,7 +23,7 @@ bot.onText(/\/predict/, (msg) => {
     console.log(msg)
     bot.sendMessage(
         msg.chat.id,
-        `Masukkan nilai i/v contohnya 6/9`
+        `Masukkan nilai i|v contohnya 6|9`
     );   
     state = 1;
 });
@@ -31,7 +31,7 @@ bot.onText(/\/predict/, (msg) => {
 bot.on('message',(msg) => { 
     if (state == 1){
         console.log(msg.text);
-        s = msg.text.split ("/");
+        s = msg.text.split ("|");
         i = s[0]
         v = s[1]
          model.predict(
@@ -40,6 +40,7 @@ bot.on('message',(msg) => {
             parseFloat(s[1])
         ]
     ).then((jres)=>{
+       console.log(jres);      
        bot.sendMessage(
         msg.chat.id,
         'Nilai i yang diprediksi adalah ${jres[0]} ampere'
