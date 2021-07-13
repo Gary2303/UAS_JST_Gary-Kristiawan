@@ -16,26 +16,47 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(
         msg.chat.id,
         `hello ${msg.chat.first_name}, welcome...\n
-        click /menu to main menu`
+        click / predict'
     );   
 });
 
-bot.onText(/\/menu/, (msg) => { 
+    state = 0
+bot.onText(/\/predict/, (msg) => { 
     console.log(msg)
     bot.sendMessage(
         msg.chat.id,
-        `this is your main menu`
-    );   
+        `Massukkan nilai i/v contohnya 9/9`
+    );
+    state = 1
 });
 
-bot.onText(/\/I love Tasya/, (msg) => { 
-    console.log(msg)
-    bot.sendMessage(
-        msg.chat.id,
-        `Tasya Love Gary`
-    );   
+bot.on('message',(msg) => {
+    if (state = 1)
+    s = msg.text.split("/");
+    i = s[0]
+    v = s[1]
+    model.predict(
+        [
+            parseFloat(s[0]), // string to float
+            parseFloat(s[1])
+        ]
+    ).then((jres)=>{
+        console.log(jres);
+        bot.sendMessage(
+        'nilai v yang diprediksi adalah s(jres[0]) volt'
+        'nilai p yang diprediksi adalah s(jres[1]) watt'
+     
+     })
+}); 
+      }else{
+      state = 0
+      
+    })
 });
 
+    
+    
+    
 // routers
 r.get('/prediction/:i/:r', function(req, res, next) {    
     model.predict(
