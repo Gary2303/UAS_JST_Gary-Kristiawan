@@ -16,18 +16,18 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(
         msg.chat.id,
         `hello ${msg.chat.first_name}, welcome...\n
-        click: /predict'
+        click /predict'
     );   
 });
 
-    state = 0
+    state = 0;
 bot.onText(/\/predict/, (msg) => { 
     console.log(msg)
     bot.sendMessage(
         msg.chat.id,
         `Massukkan nilai i/v contohnya 9/9`
     );
-    state = 1
+    state = 1;
 });
 
 bot.on('message',(msg) => {
