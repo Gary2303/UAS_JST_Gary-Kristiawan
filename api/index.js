@@ -9,7 +9,6 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = '1896847905:AAHDGcNGKK-aMv70Ing0JpqCgr48q1aDOHo'
 const bot = new TelegramBot(token, {polling: true});
 
-
 // bots
 bot.onText(/\/start/, (msg) => { 
     console.log(msg)
@@ -19,14 +18,44 @@ bot.onText(/\/start/, (msg) => {
         click /predict`
     );   
 });
-
+state = 0;
 bot.onText(/\/predict/, (msg) => { 
     console.log(msg)
     bot.sendMessage(
         msg.chat.id,
         `Masukkan nilai i/v contohnya 6/9`
     );   
+    state = 1;
 });
+
+bot.on('message',(msg) => { 
+    if (state == 1){
+        console.log(msg.text);
+        s = msg.text.split ("/");
+        i = s[0]
+        v = s[1]
+         model.predict(
+        [
+            parseFloat(s[0]), // string to float
+            parseFloat(s[1])
+        ]
+    ).then((jres)=>{
+       bot.sendMessage(
+        msg.chat.id,
+        'Nilai i yang diprediksi adalah s{jres[0]} ampere'
+       );
+        bot.sendMessage(
+         msg.chat.id,
+         'Nilai v yang diprediksi adalah s{jres[1]} volt'
+       );
+    })
+  }else{
+   state = 0
+  }
+});
+
+
+
 
 // routers
 r.get('/prediction/:i/:r', function(req, res, next) {    
