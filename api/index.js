@@ -25,7 +25,7 @@ bot.onText(/\/predict/, (msg) => {
     console.log(msg)
     bot.sendMessage(
         msg.chat.id,
-        `Massukkan nilai i/v contohnya 9/9`
+        `Masukkan nilai i/v contohnya 9/9`
     );
     state = 1;
 });
