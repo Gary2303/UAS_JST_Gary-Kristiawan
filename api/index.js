@@ -48,7 +48,7 @@ bot.on('message',(msg) => {
      
      })
 }); 
-      }else{
+     }else{
       state = 0
       
     })
