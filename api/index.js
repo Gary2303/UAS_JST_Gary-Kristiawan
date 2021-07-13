@@ -40,7 +40,6 @@ bot.on('message',(msg) => {
             parseFloat(s[1])
          ]
     ).then((jres)=>{
-       console.log(jres);
        bot.sendMessage(
         msg.chat.id,
         'Nilai v yang diprediksi adalah ${jres[0]} volt'
